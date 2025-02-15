@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!hjr^f=w8uu7dl6ezw4aq9o)i1ybhks!8!49$e((%5s%466vm=
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://techsprint-django-xxxx-xxxx.a.run.app"]
+CSRF_TRUSTED_ORIGINS = ["https://fiery-plate-451007-u9.de.r.appspot.com/"]
 
 
 PORT = os.getenv("PORT", "8080")
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'tech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'techsprint-db',
+        'USER': 'techsprint-db',
+        'PASSWORD': 'G^Yc&dR_33IlIR.,',
+        'HOST': '152.59.196.227',
+        'PORT': '5432',
     }
 }
 
@@ -123,7 +127,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
