@@ -8,6 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 load_dotenv()
+
+
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -58,12 +60,23 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tech.wsgi.application'
+WSGI_APPLICATION = 'project_name.wsgi.application'
+
 
 # PostgreSQL Database Configuration for Render
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'techsprintdb',
+        'USER': 'tharunakkineni',
+        'PASSWORD': 'DB2zUwiDZdWnXWCLvusro6nQqvcFsZsM',
+        'HOST': 'dpg-cuofkj8gph6c73dmi8jg-a',
+        'PORT': '5432',  # Default PostgreSQL port
+    }
 }
+
+
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
