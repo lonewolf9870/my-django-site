@@ -1,12 +1,14 @@
 import os
 import dj_database_url
 from pathlib import Path
+from dotenv import load_dotenv
 
 # Base directory
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key')
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
@@ -25,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'events',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
