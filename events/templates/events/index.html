@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechXplosion</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <img src="{% static "event_images/techlogo.jpg" %}" alt="techsprintclublogo"/>
+        <h1 id="title">TechXplosion</h1>
+        <p id="quote">Unleash Your Tech</p>
+        <a href="{% url 'events' %}">
+            <button id="registerBtn">Register</button>
+        </a>
+    </div>
+
+    <script>
+        // Centering the content
+        gsap.set("body", { display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", background: "linear-gradient(135deg, #1a1a2e, #16213e)" });
+        gsap.set("#container", { textAlign: "center", color: "#ffffff", fontFamily: "Arial, sans-serif" });
+        gsap.set("#title", { fontSize: "3rem", fontWeight: "bold" });
+        gsap.set("#quote", { fontSize: "1.5rem", marginBottom: "20px", opacity: 0.8 });
+        gsap.set("#registerBtn", { padding: "10px 20px", fontSize: "1.2rem", border: "none", cursor: "pointer", background: "#ff4d4d", color: "#fff", borderRadius: "5px" });
+
+        // Animations
+        gsap.from("#title", { opacity: 0, y: -50, duration: 1, ease: "power2.out" });
+        gsap.from("#quote", { opacity: 0, y: 50, duration: 1, delay: 0.5, ease: "power2.out" });
+        gsap.from("#registerBtn", { opacity: 0, scale: 0.5, duration: 1, delay: 1, ease: "elastic.out(1, 0.5)" });
+
+        // Button Hover Animation
+        document.getElementById("registerBtn").addEventListener("mouseenter", function() {
+            gsap.to(this, { scale: 1.1, duration: 0.2, ease: "power1.out", background: "#ff1a1a" });
+        });
+
+        document.getElementById("registerBtn").addEventListener("mouseleave", function() {
+            gsap.to(this, { scale: 1, duration: 0.2, ease: "power1.out", background: "#ff4d4d" });
+        });
+    </script>
+</body>
+</html>
